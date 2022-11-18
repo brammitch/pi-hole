@@ -4,8 +4,8 @@ version: "3"
 
 services:
   pihole:
-    container_name: rsi
-    image: pihole/pihole:latest
+    container_name: "rsi"
+    image: "pihole/pihole:latest"
     ports:
       - "53:53/tcp"
       - "53:53/udp"
