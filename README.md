@@ -1,4 +1,6 @@
-## Simple Docker Pi-hole Config
+## Simple Docker Compose Pi-hole Config
+
+Uses Quad9 and Cloudflare for DNS.
 
 ### Setup
 
