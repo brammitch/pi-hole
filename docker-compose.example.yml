@@ -13,7 +13,7 @@ services:
     environment:
       TZ: "America/New_York"
       WEBPASSWORD: "InsertPasswordHere"
-      FTLCONF_LOCAL_IPV4: "192.168.1.9"
+      FTLCONF_LOCAL_IPV4: "192.168.1.12"
       FTLCONF_RATE_LIMIT: "1000/60"
       PIHOLE_DNS: "9.9.9.9;149.112.112.112;2620:fe::fe;2620:fe::9;1.1.1.1;1.0.0.1;2606:4700:4700::1111;2606:4700:4700::1001"
       DNSSEC: "true"
@@ -24,3 +24,11 @@ services:
       - "./etc-pihole:/etc/pihole"
       - "./etc-dnsmasq.d:/etc/dnsmasq.d"
     restart: "unless-stopped"
+  orbital-sync:
+    image: mattwebbio/orbital-sync:1
+    environment:
+      PRIMARY_HOST_BASE_URL: 'https://192.168.1.11'
+      PRIMARY_HOST_PASSWORD: 'InsertAnotherPasswordHere'
+      SECONDARY_HOST_1_BASE_URL: 'https://192.168.1.12'
+      SECONDARY_HOST_1_PASSWORD: 'InsertPasswordHere'
+      INTERVAL_MINUTES: 30
